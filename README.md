@@ -26,6 +26,7 @@ This template captures the best patterns from three completed series projects an
 book-series-template/
 |-- README.md                          # This file
 |-- SETUP.md                           # Step-by-step setup checklist
+|-- workflow-new-book-series.md        # Complete end-to-end workflow (Cascade follows this)
 |-- client-request-template.md         # Fillable creative brief (client input)
 |-- book-series-plan.md                # Series planning document (fill-in-the-blanks)
 |-- book-series-template.md            # Master series vision document
@@ -135,7 +136,7 @@ Tell Cascade to read the content generation details file and generate:
 2. Place images in `public/images/`
 3. Final build, commit, and push — Vercel auto-deploys from GitHub
 
-> **See `E:\metronagon\workflow-new-book-series.md` for the complete detailed workflow with exact Cascade prompts.**
+> **See `workflow-new-book-series.md` in this project root for the complete detailed workflow with exact Cascade prompts.**
 
 ---
 
