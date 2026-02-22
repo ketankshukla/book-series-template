@@ -1,6 +1,6 @@
 # Book Series Template
 
-A reusable template repository for creating book series projects -- fiction or non-fiction. Clone this repo for any new book series and follow the setup instructions to customize it for your project.
+A reusable template repository for creating book series projects — fiction or non-fiction. Clone this repo, fill in the creative brief, and let Cascade (Windsurf AI) generate the entire project automatically.
 
 This template captures the best patterns from three completed series projects and provides a complete starting point for planning, writing, publishing, and marketing a book series.
 
@@ -8,7 +8,8 @@ This template captures the best patterns from three completed series projects an
 
 ## What This Template Includes
 
-- **Next.js 16 website** with React 19, Tailwind CSS 4, TypeScript, and Lucide React -- fully functional with parameterized components
+- **Client request template** (`client-request-template.md`) — fillable creative brief for clients
+- **Next.js 16 website** with React 19, Tailwind CSS 4, TypeScript, and Lucide React — fully functional with `{{PLACEHOLDER}}` parameterized components
 - **Book series planning documents** with fill-in-the-blank placeholders
 - **Amazon KDP publishing templates** with metadata, pricing, and launch strategy
 - **AI image prompt templates** for ebook covers, paperback wraps, branding, box sets, social media, character portraits, and YouTube thumbnails
@@ -25,6 +26,7 @@ This template captures the best patterns from three completed series projects an
 book-series-template/
 |-- README.md                          # This file
 |-- SETUP.md                           # Step-by-step setup checklist
+|-- client-request-template.md         # Fillable creative brief (client input)
 |-- book-series-plan.md                # Series planning document (fill-in-the-blanks)
 |-- book-series-template.md            # Master series vision document
 |-- amazon-publishing-template.md      # KDP metadata, pricing, launch strategy
@@ -94,43 +96,59 @@ book-series-template/
 
 ---
 
-## File Naming Conventions
+## Automated Workflow (4 Phases)
 
-- **Directories:** kebab-case (`book-series`, `front-matter`, `ebook-covers`)
-- **Book folders:** `Book [NN] - [Title] - [Subtitle]`
-- **Chapter files:** `chapter_[NN]_[slug_with_underscores].md`
-- **Chapter summaries:** `chapter_[NN]_summary.md`
-- **Book summaries:** `book_[NN]_summary.md`
-- **Image prompts:** `book_[NN]_cover_prompts.md`
-- **Generated images:** `book_[N]_cover_v[version]_[tool].png`
+### Phase 1: Clone & Initialize
+
+```powershell
+# Clone this template into a new project folder
+gh repo clone ketankshukla/book-series-template E:\your-series-name
+
+# Remove template git history and reinitialize
+Remove-Item -Recurse -Force E:\your-series-name\.git
+Set-Location E:\your-series-name
+git init
+```
+
+### Phase 2: Creative Brief → Content Generation Details
+
+1. Copy `client-request-template.md` to `creative-brief.md`
+2. Fill in the creative brief with all client information
+3. Tell Cascade: _"Read creative-brief.md and generate {series-name}-content-generation-details.md"_
+4. Cascade produces a comprehensive ~800-1200 line specification file
+
+### Phase 3: Content Generation Details → All Content
+
+Tell Cascade to read the content generation details file and generate:
+
+- Full chapter text for every book (markdown files)
+- Front and back matter for every book
+- Website source code (all components, data files, CSS, metadata)
+- Amazon publishing metadata, KDP categories, keywords
+- Image prompts (3 variations per book cover + logo + hero)
+- Marketing templates (video scripts, HeyGen prompts)
+- Build verification and push to GitHub
+
+### Phase 4: Image Generation & Deploy
+
+1. Generate cover images from prompts using ChatGPT (the **only manual step**)
+2. Place images in `public/images/`
+3. Final build, commit, and push — Vercel auto-deploys from GitHub
+
+> **See `E:\metronagon\workflow-new-book-series.md` for the complete detailed workflow with exact Cascade prompts.**
 
 ---
 
-## Workflow
+## Quick Start (Development)
 
-1. **Planning** -- Fill in `book-series-template.md` and `book-series-plan.md`
-2. **Content Creation** -- Write chapters, front matter, back matter per book
-3. **Image Generation** -- Use prompts in `book-prompts/` with AI tools
-4. **Website** -- Update `src/data/books.ts` and customize components
-5. **Publishing** -- Generate DOCX files, prepare Amazon production assets
-6. **Launch** -- Deploy website to Vercel, publish on KDP
-
----
-
-## Quick Start
-
-```bash
-# 1. Clone this template
-git clone https://github.com/ketankshukla/book-series-template.git my-series-name
-cd my-series-name
-
-# 2. Install dependencies
+```powershell
+# Install dependencies
 npm install
 
-# 3. Start development server
+# Start development server
 npm run dev
 
-# 4. Build for production
+# Build for production
 npm run build
 ```
 
@@ -138,4 +156,4 @@ See `SETUP.md` for the complete step-by-step setup checklist.
 
 ---
 
-**Author:** Ketan Shukla | **Publisher:** Metronagon | **Website:** metronagon.com
+**Template by:** Ketan Shukla | **Publisher:** Metronagon | **Website:** metronagon.com

@@ -1,98 +1,100 @@
-# Setup Checklist -- New Book Series Project
+# Setup Checklist — New Book Series Project
 
-A step-by-step guide to setting up a new book series project from this template.
+A step-by-step guide to setting up a new book series project from this template using the automated Cascade workflow.
 
 ---
 
-## Phase 1: Repository Setup
+## Phase 1: Clone & Initialize
 
-- [ ] Clone this repo and rename the folder to your series name (kebab-case, e.g., `my-awesome-series`)
+- [ ] Clone this template repo:
+  ```powershell
+  gh repo clone ketankshukla/book-series-template E:\your-series-name
+  ```
+- [ ] Remove template git history and reinitialize:
+  ```powershell
+  Remove-Item -Recurse -Force E:\your-series-name\.git
+  Set-Location E:\your-series-name
+  git init
+  ```
 - [ ] Run `npm install` to install all dependencies
-- [ ] Update `package.json` -- change `"name"` to your series slug
-- [ ] Verify the dev server works: `npm run dev`
+- [ ] Verify the dev server works: `npm run dev` (should show placeholder site)
 
-## Phase 2: Series Planning
+## Phase 2: Creative Brief → Content Generation Details
 
-- [ ] Fill in `book-series-template.md` with your complete series vision
-  - Series name, genre, tone, target audience
-  - Book count, chapter count, word count targets
-  - Characters (protagonist team, antagonist team, mentors)
-  - Romance arcs, death strategy, narration style
-  - Cover requirements, Amazon strategy
-- [ ] Fill in `book-series-plan.md` with your series structure
-  - Book breakdown (titles, themes, chapter counts)
-  - Content strategy and cross-book continuity
-  - Tone and voice guidelines
-  - Distribution and release strategy
-- [ ] Fill in `amazon-publishing-template.md` with KDP metadata
-  - Keywords, categories, pricing per book
-  - Description HTML template
-  - Launch sequence
+- [ ] Copy `client-request-template.md` to `creative-brief.md`
+- [ ] Fill in all REQUIRED fields in the creative brief (see template for guidance)
+- [ ] Verify the pre-submission checklist at the bottom of the template
+- [ ] Tell Cascade:
+  ```
+  Read creative-brief.md and generate {series-name}-content-generation-details.md
+  with complete series structure, characters, chapter outlines, front/back matter,
+  Amazon metadata, website customization, and image prompts (3 per book).
+  ```
+- [ ] Review the generated content generation details file (~800-1200 lines)
+- [ ] Make any corrections or adjustments before proceeding
 
-## Phase 3: Content Creation (Per Book)
+## Phase 3: Content Generation Details → All Content
 
-- [ ] Create book directory: `book-series/Book [NN] - [Title] - [Subtitle]/`
-- [ ] Create subdirectories: `chapters/`, `chapter-summaries/`, `front_matter/`, `back_matter/`, `book-summary/`, `book_descriptions/`, `image-prompts/`
-- [ ] Write front matter files using templates in `book-series/front-matter-templates/`
-  - `copyright.md`, `dedication.md`, `epigraph.md`
-  - `dramatis_personae.md` (fiction only)
-  - `preface.md`, `introduction.md`, `prologue.md` (non-fiction only)
-- [ ] Write all chapters as individual markdown files: `chapter_[NN]_[slug].md`
-- [ ] Write chapter summaries: `chapter_[NN]_summary.md`
-- [ ] Write book summary: `book_[NN]_summary.md`
-- [ ] Write book description: `book_descriptions/description.md`
-- [ ] Write back matter using templates in `book-series/back-matter-templates/`
-  - `about_the_author.md`, `also_by.md`, `authors_note.md`, `connect.md`, `review_request.md`
-  - `epilogue.md` (non-fiction only)
-- [ ] Create image prompts: `image-prompts/book_[NN]_cover_prompts.md`
-- [ ] Create book blurb: `book-blurbs/book_[NN]_blurb.md`
+- [ ] Tell Cascade:
+  ```
+  Read {series-name}-content-generation-details.md and generate ALL book chapters,
+  front/back matter, website source code, Amazon publishing files, image prompt
+  files, and marketing templates. Then build and push to GitHub.
+  ```
+- [ ] Cascade generates all text-based assets:
+  - [ ] Full chapter text for every book
+  - [ ] Front matter per book (title page, copyright, dedication, epigraph, dramatis personae)
+  - [ ] Back matter per book (author's note, about the author, also by, connect, review request)
+  - [ ] Website source code (all components, data files, CSS, metadata)
+  - [ ] Amazon publishing metadata (descriptions, categories, keywords, pricing)
+  - [ ] Image prompt files (3 cover variations per book + logo + hero)
+  - [ ] Video/marketing templates
+  - [ ] README and project documentation
+- [ ] Build verification passes: `npm run build`
+- [ ] Code committed and pushed to GitHub
 
-## Phase 4: Image Generation
+## Phase 4: Image Generation & Deploy (Manual)
 
-- [ ] Generate ebook cover images using prompts in `book-prompts/ebook-covers/`
-- [ ] Generate paperback wrap images using prompts in `book-prompts/paperback-wraps/`
-- [ ] Generate series logo using prompts in `book-prompts/branding/`
-- [ ] Generate box set covers using prompts in `book-prompts/box-sets/`
-- [ ] Generate social media images using prompts in `book-prompts/social-media/`
-- [ ] Generate character portraits (fiction only) using prompts in `book-prompts/character-portraits/`
-- [ ] Place final images in `book-images/` and `public/images/`
-- [ ] Copy author photo to `public/images/ketan-shukla.jpeg`
+- [ ] For each book, open prompt file from `book-prompts/ebook-covers/`
+- [ ] Generate 3 image variations per book using ChatGPT
+- [ ] Select the best result per book, save as `book{N}-cover.png`
+- [ ] Generate series logo → `series-logo-{series-name}.png`
+- [ ] Generate hero/landscape image → `complete-series-cover-landscape.png`
+- [ ] Source or generate author photo → `author-photo.jpeg`
+- [ ] Place all images in `public/images/`
+- [ ] Tell Cascade:
+  ```
+  Images are in public/images/. Build, commit, and push.
+  ```
+- [ ] Verify Vercel deployment succeeded
+- [ ] Visit live URL and verify all sections display correctly
 
-## Phase 5: Website Customization
-
-- [ ] Update `src/app/layout.tsx` -- replace `{{SERIES_NAME}}` and metadata
-- [ ] Update `src/app/globals.css` -- set your color scheme in CSS variables
-- [ ] Update `src/data/books.ts` -- replace sample data with your actual book data
-- [ ] Update `src/data/characters.ts` -- add characters (fiction only; delete file for non-fiction)
-- [ ] Update `src/components/Header.tsx` -- replace `{{SERIES_NAME}}`
-- [ ] Update `src/components/Hero.tsx` -- replace logo and cover image paths
-- [ ] Update `src/components/AuthorSection.tsx` -- replace author bio, stats, series structure
-- [ ] Update `src/components/Footer.tsx` -- replace series name, tagline, Amazon URL
-- [ ] Update `src/components/BooksSection.tsx` -- update tagline, Amazon complete series URL
-- [ ] Verify the site builds: `npm run build`
-- [ ] Preview the site: `npm run dev`
-
-## Phase 6: Publishing
+## Phase 5: Publishing (Optional)
 
 - [ ] Generate DOCX files using PowerShell scripts in `book-series/word-docs/`
-  - `.\make_book_docx.ps1 -BookFolder "Book 01 - Title - Subtitle"`
-  - `.\make_complete_docx.ps1 -BookFolder "Book 01 - Title - Subtitle"`
-- [ ] Verify DOCX files for formatting issues (blank pages, missing chapters)
+- [ ] Verify DOCX files for formatting issues
 - [ ] Prepare Amazon production files in `amazon-production/`
-  - epub files, PDF books, PDF covers
-  - Blurbs, descriptions, titles, categories/keywords
-- [ ] Fill in `book-series/kdp-categories-and-keywords.md`
-- [ ] Fill in `book-series/series-description.md`
-
-## Phase 7: Deployment
-
-- [ ] Push to GitHub
-- [ ] Connect GitHub repo to Vercel for automatic deployment
-- [ ] Set custom domain (if applicable)
 - [ ] Publish books on Amazon KDP
 - [ ] Update Amazon URLs in `src/data/books.ts`
 - [ ] Rebuild and redeploy
 
 ---
 
-**Tip:** Complete each phase fully before moving to the next. The planning phase is the most important -- a thorough plan prevents rework later.
+## What's Automated vs. Manual
+
+| Task                                     | Automated?           |
+| ---------------------------------------- | -------------------- |
+| Clone and init repo                      | You (3 commands)     |
+| Fill in creative brief                   | Client/You           |
+| Generate content-generation-details file | **Cascade**          |
+| Generate all book chapters               | **Cascade**          |
+| Generate front/back matter               | **Cascade**          |
+| Generate website source code             | **Cascade**          |
+| Generate Amazon metadata                 | **Cascade**          |
+| Generate image prompts                   | **Cascade**          |
+| Generate cover images                    | You + ChatGPT        |
+| Build and deploy                         | **Cascade** + Vercel |
+
+---
+
+**Tip:** The creative brief is the single most important input. The more detail in the SERIES DESCRIPTION and MAIN CHARACTERS fields, the better the output quality across everything Cascade generates.

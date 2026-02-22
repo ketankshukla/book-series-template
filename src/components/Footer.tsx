@@ -37,8 +37,8 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-cream/40 text-base leading-relaxed">
-              {/* TODO: Replace with your series one-line description */}A book
-              series by Ketan Shukla.
+              {/* TODO: Replace with your series one-line description */}
+              {"A book series by {{AUTHOR_NAME}}."}
             </p>
           </div>
 
@@ -93,7 +93,8 @@ export default function Footer() {
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-primary/5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-cream/30 text-sm">
-            &copy; {new Date().getFullYear()} Ketan Shukla. All rights reserved.
+            &copy; {new Date().getFullYear()}
+            {" {{AUTHOR_NAME}}. All rights reserved."}
           </p>
           <p className="text-cream/20 text-sm italic font-serif">
             {/* TODO: Replace with your series tagline */}

@@ -74,11 +74,11 @@ _{{SERIES_TAGLINE}}_
 **Theme:** {{ACT_1_THEME}}
 _{{ACT_1_DESCRIPTION}}_
 
-| Book | Title | Focus Character/Topic | Core Conflict/Question |
-| ---- | ----- | --------------------- | ---------------------- |
-| 1 | {{BOOK_1_TITLE}} | {{FOCUS_1}} | {{CONFLICT_1}} |
-| 2 | {{BOOK_2_TITLE}} | {{FOCUS_2}} | {{CONFLICT_2}} |
-| ... | ... | ... | ... |
+| Book | Title            | Focus Character/Topic | Core Conflict/Question |
+| ---- | ---------------- | --------------------- | ---------------------- |
+| 1    | {{BOOK_1_TITLE}} | {{FOCUS_1}}           | {{CONFLICT_1}}         |
+| 2    | {{BOOK_2_TITLE}} | {{FOCUS_2}}           | {{CONFLICT_2}}         |
+| ...  | ...              | ...                   | ...                    |
 
 **Act/Part I ends with:** {{ACT_1_ENDING}}
 
@@ -89,7 +89,7 @@ _{{ACT_2_DESCRIPTION}}_
 
 | Book | Title | Focus Character/Topic | Core Conflict/Question |
 | ---- | ----- | --------------------- | ---------------------- |
-| ... | ... | ... | ... |
+| ...  | ...   | ...                   | ...                    |
 
 **Act/Part II ends with:** {{ACT_2_ENDING}}
 
@@ -100,7 +100,7 @@ _{{ACT_3_DESCRIPTION}}_
 
 | Book | Title | Focus Character/Topic | Core Conflict/Question |
 | ---- | ----- | --------------------- | ---------------------- |
-| ... | ... | ... | ... |
+| ...  | ...   | ...                   | ...                    |
 
 **Act/Part III ends with:** {{ACT_3_ENDING}}
 
@@ -112,19 +112,19 @@ _Delete this section for non-fiction series._
 
 ### PROTAGONIST TEAM
 
-| Name | Role | Brief Description |
-| ---- | ---- | ----------------- |
+| Name          | Role          | Brief Description    |
+| ------------- | ------------- | -------------------- |
 | {{HERO_NAME}} | {{HERO_ROLE}} | {{HERO_DESCRIPTION}} |
-| ... | ... | ... |
+| ...           | ...           | ...                  |
 
 **Protagonist Leader:** {{HERO_NAME}} -- present in EVERY book. Arc: {{START_STATE}} -> {{END_STATE}}
 
 ### ANTAGONIST TEAM
 
-| Name | Role | Brief Description |
-| ---- | ---- | ----------------- |
+| Name             | Role             | Brief Description       |
+| ---------------- | ---------------- | ----------------------- |
 | {{VILLAIN_NAME}} | {{VILLAIN_ROLE}} | {{VILLAIN_DESCRIPTION}} |
-| ... | ... | ... |
+| ...              | ...              | ...                     |
 
 **Antagonist Leader:** {{VILLAIN_NAME}} -- present in EVERY book. Arc: {{START_STATE}} -> {{END_STATE}}
 
@@ -221,6 +221,7 @@ _Delete this section for non-fiction series._
 Rotate between these types:
 
 **Fiction:**
+
 - **Danger** -- character in immediate peril
 - **Revelation** -- shocking information revealed
 - **Emotional** -- relationship rupture or sacrifice
@@ -229,6 +230,7 @@ Rotate between these types:
 - **Arrival** -- someone or something unexpected appears
 
 **Non-Fiction:**
+
 - **Question** -- pose a compelling question that the next chapter answers
 - **Contradiction** -- present a counterintuitive finding
 - **Promise** -- preview a powerful insight coming next
@@ -315,7 +317,7 @@ The `word-docs/` folder at the series root contains:
 - **Title:** {{SERIES_NAME}} Book [N]: [Main Title] -- [Subtitle]
 - **SEO Subtitle:** {{SEO_SUBTITLE_FORMAT}}
 - **Series Name:** {{SERIES_NAME}}
-- **Publisher/Imprint:** Metronagon
+- **Publisher/Imprint:** {{PUBLISHER_IMPRINT}}
 
 ### Keywords (7 per book)
 
@@ -472,4 +474,4 @@ Book [N] of {{NUM_BOOKS}} in the {{SERIES_NAME}} series.
 
 _This template was created from three completed book series projects. It captures all decisions, frameworks, and lessons learned in a reusable format._
 
-_Author: Ketan Shukla | Publisher: Metronagon | Website: metronagon.com | Email: ketan@metronagon.com_
+_Author: {{AUTHOR_NAME}} | Publisher: {{PUBLISHER_IMPRINT}} | Website: {{WEBSITE_DOMAIN}} | Email: {{AUTHOR_EMAIL}}_

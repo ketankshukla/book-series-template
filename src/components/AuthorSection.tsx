@@ -38,34 +38,24 @@ export default function AuthorSection() {
             {/* Author photo */}
             <div className="mb-6">
               <img
-                src="/images/ketan-shukla.jpeg"
-                alt="Ketan Shukla"
+                src="/images/author-photo.jpeg"
+                alt="{{AUTHOR_NAME}}"
                 className="w-40 h-40 rounded-full object-cover border-2 border-primary/30 shadow-primary"
               />
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-bold font-serif mb-6">
-              <span className="heading-gradient">Ketan Shukla</span>
+              <span className="heading-gradient">{"{{AUTHOR_NAME}}"}</span>
             </h2>
 
             <div className="space-y-4 text-cream/60 leading-relaxed text-base">
               {/* TODO: Replace these paragraphs with your actual author bio */}
+              <p>{"{{AUTHOR_BIO_PARAGRAPH_1}}"}</p>
               <p>
-                Ketan Shukla is a writer and lifelong learner with a deep
-                passion for critical thinking, rational analysis, and
-                evidence-based understanding. His curiosity spans philosophy,
-                the experience of life, and the quiet discipline of mastering a
-                craft through sustained effort.
+                The <em>{"{{SERIES_NAME}}"}</em> series{" "}
+                {"{{AUTHOR_BIO_SERIES_CONNECTION}}"}
               </p>
-              <p>
-                The <em>{"{{SERIES_NAME}}"}</em> series is the culmination of
-                years of research, practice, and personal experience.
-              </p>
-              <p>
-                He believes the best writing -- fiction or non-fiction -- comes
-                from genuine curiosity and the willingness to sit with a problem
-                until it teaches you something.
-              </p>
+              <p>{"{{AUTHOR_BIO_PARAGRAPH_3}}"}</p>
             </div>
 
             {/* Dedication */}

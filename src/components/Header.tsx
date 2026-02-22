@@ -46,7 +46,7 @@ export default function Header() {
                 {"{{SERIES_NAME}}"}
               </p>
               <p className="font-serif text-sm text-foreground/70 transition-colors group-hover:text-foreground italic">
-                by Ketan Shukla
+                {"by {{AUTHOR_NAME}}"}
               </p>
             </div>
           </a>

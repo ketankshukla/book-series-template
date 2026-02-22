@@ -23,13 +23,12 @@ export const viewport: Viewport = {
 
 // TODO: Replace {{SERIES_NAME}} and {{SERIES_DESCRIPTION}} with your series details
 export const metadata: Metadata = {
-  title: "{{SERIES_NAME}} -- A Book Series by Ketan Shukla",
-  description:
-    "{{SERIES_DESCRIPTION}}",
+  title: "{{SERIES_NAME}} -- A Book Series by {{AUTHOR_NAME}}",
+  description: "{{SERIES_DESCRIPTION}}",
   keywords: [
     // TODO: Add 6-8 keywords relevant to your series
     "book series",
-    "Ketan Shukla",
+    "{{AUTHOR_NAME}}",
   ],
   icons: {
     icon: "/favicon.svg",
