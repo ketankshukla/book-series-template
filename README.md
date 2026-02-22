@@ -110,11 +110,11 @@ Set-Location E:\your-series-name
 git init
 ```
 
-### Phase 2: Creative Brief → Content Generation Details
+### Phase 2: Client Request → Content Generation Details
 
-1. Copy `client-request-template.md` to `creative-brief.md`
-2. Fill in the creative brief with all client information
-3. Tell Cascade: _"Read creative-brief.md and generate {series-name}-content-generation-details.md"_
+1. Copy `client-request-template.md` to `{series-name}-client-request.md`
+2. Fill in all fields with client information
+3. Tell Cascade: _"Read {series-name}-client-request.md and generate {series-name}-content-generation-details.md"_
 4. Cascade produces a comprehensive ~800-1200 line specification file
 
 ### Phase 3: Content Generation Details → All Content

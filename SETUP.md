@@ -19,14 +19,14 @@ A step-by-step guide to setting up a new book series project from this template 
 - [ ] Run `npm install` to install all dependencies
 - [ ] Verify the dev server works: `npm run dev` (should show placeholder site)
 
-## Phase 2: Creative Brief → Content Generation Details
+## Phase 2: Client Request → Content Generation Details
 
-- [ ] Copy `client-request-template.md` to `creative-brief.md`
-- [ ] Fill in all REQUIRED fields in the creative brief (see template for guidance)
+- [ ] Copy `client-request-template.md` to `{series-name}-client-request.md`
+- [ ] Fill in all REQUIRED fields in the client request (see template for guidance)
 - [ ] Verify the pre-submission checklist at the bottom of the template
 - [ ] Tell Cascade:
   ```
-  Read creative-brief.md and generate {series-name}-content-generation-details.md
+  Read {series-name}-client-request.md and generate {series-name}-content-generation-details.md
   with complete series structure, characters, chapter outlines, front/back matter,
   Amazon metadata, website customization, and image prompts (3 per book).
   ```
@@ -85,7 +85,7 @@ A step-by-step guide to setting up a new book series project from this template 
 | Task                                     | Automated?           |
 | ---------------------------------------- | -------------------- |
 | Clone and init repo                      | You (3 commands)     |
-| Fill in creative brief                   | Client/You           |
+| Fill in client request                   | Client/You           |
 | Generate content-generation-details file | **Cascade**          |
 | Generate all book chapters               | **Cascade**          |
 | Generate front/back matter               | **Cascade**          |
@@ -97,4 +97,4 @@ A step-by-step guide to setting up a new book series project from this template 
 
 ---
 
-**Tip:** The creative brief is the single most important input. The more detail in the SERIES DESCRIPTION and MAIN CHARACTERS fields, the better the output quality across everything Cascade generates.
+**Tip:** The client request is the single most important input. The more detail in the SERIES DESCRIPTION and MAIN CHARACTERS fields, the better the output quality across everything Cascade generates.
